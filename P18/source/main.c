@@ -1,23 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-int main(void)
+void main(void)
 {
-	FILE *in, *out;
-	int cnt;
-	char str[100];
-	in = fopen("C://Users/USER/Desktop/110360227_黃則為/P18/welcome.txt", "r");
-	out = fopen("C://Users/USER/Desktop/110360227_黃則為/P18/output.txt", "w");
-	while (!feof(in))
-	{
-		cnt = fscanf(in, "%s", str);
-		if (cnt > 0)
-		{
-			fprintf(out, "%s\n", str);
-		}
-	}
-	fclose(in);
-	fclose(out);
+	char string1[60] = "Welcome";
+	char string2[60];
+
+	int len;
+
+	//char*strncpy(char*string2,const char*string1,size_t n);
+	strcpy_s(string2, sizeof(string1), string1);
+	printf("string2=%s\n", string2);
+
+	len = strlen(string2);
+	printf("字串長度為%d\n", len);
+
 	system("pause");
 	return 0;
 }

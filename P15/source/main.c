@@ -1,22 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int maximum(int x, int y, int z);
+
 int main(void)
 {
-	FILE *fptr1, *fptr2;
-	char ch;
-	fptr1 = fopen("C://Users/USER/Desktop/110360227_黃則為/P15/welcome.txt", "r");
-	fptr2 = fopen("C://Users/USER/Desktop/110360227_黃則為/P15/output.txt", "w");
-	if ((fptr1 != NULL) && (fptr2 != NULL))
-	{
-		while ((ch = getc(fptr1)) != EOF)
-			putc(ch, fptr2);
-		fclose(fptr1);
-		fclose(fptr2);
-		printf("檔案拷貝完成!!\n");
-	}
-	else
-		printf("檔案開啟失敗!!\n");
+	int number1, number2, number3;
+
+	printf("Enter three integers:");
+	scanf_s("%d %d %d", &number1, &number2, &number3);
+	printf("Maximum is : %d\n", maximum(number1, number2, number3));
 	system("pause");
 	return 0;
+}
+int maximum(int x, int y, int z)
+{
+	int max = x;
+	if (y > max)
+	{
+		max = y;
+	}
+	if (z > max)
+	{
+		max = z;
+	}
+	return max;
 }
